@@ -4,9 +4,9 @@
 #include <unistd.h>
 
 int currency;
-char screen[3] = {' ', ' ', ' '};
+char screen[3] = {'$', '$', '$'};
 
-char symbols[8] = {'$', '*', '#', '@', '7', '?', '~', '+'};
+char symbols[15] = {'$', '*', '#', '@', '7', '?', '~', '=', '&', '#', '@', '!', '%', '~', '='};
 
 
 void printUsage() {
@@ -63,13 +63,14 @@ void pullTheLeverKronk() {
 
     sleep(1);
 
-    currency--;
-    if (currency >= 0) {
-        printf("Payment recieved. Current winnings: %d\n", currency);
-    } else {
+    if (currency <= 0) {
         printf("Youre out of money!\n");
         broke();
     }
+
+    currency -= 2;
+    printf("Payment recieved. Current winnings: %d\n", currency);
+
     screen[0] = ' ';
     screen[1] = ' ';
     screen[2] = ' ';
@@ -77,7 +78,7 @@ void pullTheLeverKronk() {
     int i;
     for (i = 0; i < 3; i++) {
         printScreen();
-        int r = rand() % 8;
+        int r = rand() % 15;
         screen[i] = symbols[r];
         sleep(1);
     }
@@ -137,7 +138,7 @@ void main() {
     // seed the random generator
     srand(time(0));
 
-    currency = 100;
+    currency = 20;
     printUsage();
     printScreen();
 
