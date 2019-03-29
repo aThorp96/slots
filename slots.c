@@ -48,7 +48,29 @@ void quit() {
 }
 
 void broke() {
-    printf("Better luck next time...\n");
+
+    unsigned int time = 200000;
+    printf("Why \n");
+    usleep(time);
+
+    printf("do \n");
+    usleep(time);
+
+    printf("we \n");
+    usleep(time);
+
+    printf("even \n");
+    usleep(time);
+
+    printf("HAVE \n");
+    usleep(time + 100000);
+
+    printf("that \n");
+    usleep(time);
+
+    printf("lever?\n ");
+    usleep(time);
+
     quit();
 }
 
@@ -63,8 +85,8 @@ void pullTheLeverKronk() {
 
     sleep(1);
 
-    if (currency <= 0) {
-        printf("Youre out of money!\n");
+    if (currency < 2) {
+        printf("You don't have enough money to play!\n");
         broke();
     }
 
