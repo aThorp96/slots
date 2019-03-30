@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-
+//This code is shit
 int currency;
 char screen[3] = {'$', '$', '$'};
 
